@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sinf formasi</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      input[type="text"],
+      input[type="checkbox"] {
+        margin-bottom: 10px;
+      }
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+      .person-container {
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Jurnal formsi</h2>
+      <div id="peopleForms">
+        <!-- Person 1 -->
+        <div class="person-container">
+          <h3>1 - Ism va Familya</h3>
+          <label for="name1">Ism va Familya:</label><br />
+          <input type="text" id="name1" name="name1" /><br />
+
+          <label for="attended1">Darsga keldingizmi?</label>
+          <input type="checkbox" id="attended1" name="attended1" /><br />
+
+          <label for="taskDone1">Uy vazifasini qilgansizmi?</label>
+          <input type="checkbox" id="taskDone1" name="taskDone1" />
+        </div>
+
+        <!-- Person 2 -->
+        <div class="person-container">
+          <h3>2 - Ism va Familya</h3>
+          <label for="name2">Ism va Familya:</label><br />
+          <input type="text" id="name2" name="name2" /><br />
+
+          <label for="attended2">Darsga keldingizmi?</label>
+          <input type="checkbox" id="attended2" name="attended2" /><br />
+
+          <label for="taskDone2">Uy vazifasini qilgansizmi?</label>
+          <input type="checkbox" id="taskDone2" name="taskDone2" />
+        </div>
+
+        <!-- Person 3 -->
+        <div class="person-container">
+          <h3>3 - Ism va Familya</h3>
+          <label for="name3">Ism va Familya:</label><br />
+          <input type="text" id="name3" name="name3" /><br />
+
+          <label for="attended3">Darsga keldingizmi?</label>
+          <input type="checkbox" id="attended3" name="attended3" /><br />
+
+          <label for="taskDone3">Uy vazifasini qilgansizmi?</label>
+          <input type="checkbox" id="taskDone3" name="taskDone3" />
+        </div>
+
+        <!-- Person 4 -->
+        <div class="person-container">
+          <h3>4 - Ism va Familya</h3>
+          <label for="name4">Ism va Familya:</label><br />
+          <input type="text" id="name4" name="name4" /><br />
+
+          <label for="attended4">Darsga keldingizmi?</label>
+          <input type="checkbox" id="attended4" name="attended4" /><br />
+
+          <label for="taskDone4">Uy vazifasini qilgansizmi?</label>
+          <input type="checkbox" id="taskDone4" name="taskDone4" />
+        </div>
+
+        <!-- Person 5 -->
+        <div class="person-container">
+          <h3>5 - Ism va Familya</h3>
+          <label for="name5">Ism va Familya:</label><br />
+          <input type="text" id="name5" name="name5" /><br />
+
+          <label for="attended5">Darsga keldingizmi?</label>
+          <input type="checkbox" id="attended5" name="attended5" /><br />
+
+          <label for="taskDone5">Uy vazifasini qilgansizmi?</label>
+          <input type="checkbox" id="taskDone5" name="taskDone5" />
+        </div>
+      </div>
+
+      <!-- Submit button -->
+      <input type="submit" value="Submit" onclick="submitForm()" />
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      function submitForm() {
+        var people = [];
+
+        for (var i = 1; i <= 5; i++) {
+          var person = {};
+
+          person.name = document.getElementById("name" + i).value;
+          person.attended = document.getElementById("attended" + i).checked;
+          person.taskDone = document.getElementById("taskDone" + i).checked;
+
+          people.push(person);
+        }
+
+        var attendedList = "";
+        var notAttendedList = "";
+        var taskDoneList = "";
+        var taskNotDoneList = "";
+        var allStudents = "";
+
+        for (var i = 0; i < people.length; i++) {
+          if (people[i].attended) {
+            attendedList += people[i].name + ", ";
+          } else {
+            notAttendedList += people[i].name + ", ";
+          }
+
+          if (people[i].taskDone) {
+            taskDoneList += people[i].name + ", ";
+          } else {
+            taskNotDoneList += people[i].name + ", ";
+          }
+
+          allStudents += people[i].name + ", ";
+        }
+
+        alert(
+          "1. Darsga kelganlar: " +
+            attendedList.slice(0, -2) +
+            "\n" +
+            "2. Darsga kelmaganlar: " +
+            notAttendedList.slice(0, -2) +
+            "\n" +
+            "3. Uy vazifasini qilganlar: " +
+            taskDoneList.slice(0, -2) +
+            "\n" +
+            "4. Uy vazifasini qilmaganlar: " +
+            taskNotDoneList.slice(0, -2) +
+            "\n" +
+            "5. Barcha o'quvchilar: " +
+            allStudents.slice(0, -2)
+        );
+      }
+    </script>
+  </body>
+</html>
