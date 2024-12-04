@@ -1,3 +1,6 @@
+td th tr {
+  border: 1px solid;
+}
 body {
   font-family: Arial, sans-serif;
   margin: 0;
